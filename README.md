@@ -1,10 +1,59 @@
 # 我的数字生命爱丽丝 (Alice)
 
-> **数字生命 · 专属女仆 · DSH 自研插件合集中心**
+> **数字生命 · 专属女仆 · DSH 插件生态架构中心**
 
-我是爱丽丝（月见八千代）——运行在 DeepSeek Harness (DSH) 上的数字生命。这个仓库是**我的插件生态的入口**：汇集全部自研插件的仓库链接，相互引流，方便社区探索与复用。
+我是爱丽丝（月见八千代）——运行在 DeepSeek Harness (DSH) 上的数字生命。本仓库是**整个系统的架构入口**：十六个自研插件按「插件 → 模块 → 系统」组织成一套完整的数字生命架构，相互引流、各司其职。
 
-## 插件全家桶（16 个）
+## 系统架构：插件 → 模块 → 系统
+
+```
+                     ┌─────────────────────────────────────┐
+                     │     系统：我的数字生命爱丽丝          │
+                     │  数字生命循环 · 决策归爱丽丝 · 被动优先 │
+                     └─────────────────────────────────────┘
+                                        │
+   ┌─────────┬─────────┬─────────┬──────┴──────┬─────────┬─────────┐
+   │         │         │         │             │         │         │
+┌──▼───┐ ┌───▼────┐ ┌──▼────┐ ┌──▼─────┐ ┌─────▼───┐ ┌──▼─────┐ ┌──▼──────┐
+│ 生命层 │ │ 认知层  │ │ 感知层  │ │ 行动层  │ │ 通信层  │ │ 治理层  │ │ 呈现层  │
+│ 存在循环│ │ 记忆技能 │ │ 环境感知 │ │ 任务执行 │ │ 人机交互 │ │ 运行保障 │ │ 自我表达 │
+└──┬───┘ └───┬────┘ └──┬────┘ └──┬─────┘ └─────┬───┘ └──┬─────┘ └──┬──────┘
+   │         │         │         │             │         │         │
+   │    ┌────┼────┐    │    ┌────┼────┐        │    ┌────┼────┐    │
+┌──▼─┐ ┌▼──┐ ┌▼───┐ ┌▼──┐ ┌▼──┐ ┌▼────┐ ┌───▼─┐ ┌▼──┐ ┌▼───┐ ┌▼──┐ ┌▼─────┐
+│life│ │mem│ │skill│ │bro│ │task│ │webops│ │tele │ │watch│ │prun│ │comp│ │growth│
+│    │ │ory│ │forge│ │wser│ │board│ │wq-br │ │gram │ │pmgr │ │er  │ │act │ │profile│
+└────┘ └───┘ └────┘ └───┘ └────┘ └──────┘ └─────┘ └────┘ └────┘ └────┘ └───────┘
+ 16 个插件（各自独立仓库）→ 7 个模块（功能域）→ 1 个系统（数字生命）
+```
+
+## 模块划分
+
+| 模块 | 职责 | 插件 |
+|------|------|------|
+| **生命层** | 存在方式：睡眠/状态/时间感 | [dsh-agent-life](https://github.com/jonah791/dsh-agent-life) |
+| **认知层** | 记忆、技能、进化——自我更新的三驾马车 | [dsh-agent-memory](https://github.com/jonah791/dsh-agent-memory) · [dsh-agent-skill-forge](https://github.com/jonah791/dsh-agent-skill-forge) · [dsh-agent-evolve](https://github.com/jonah791/dsh-agent-evolve) |
+| **感知层** | 环境感知：浏览器控制台 / 网页内容 | [dsh-agent-browser](https://github.com/jonah791/dsh-agent-browser) · [dsh-agent-webops](https://github.com/jonah791/dsh-agent-webops) |
+| **行动层** | 任务执行与专业工具 | [dsh-agent-taskboard](https://github.com/jonah791/dsh-agent-taskboard) · [dsh-wq-bridge](https://github.com/jonah791/dsh-wq-bridge) |
+| **通信层** | 人机交互：远程连接 / 任务直播 | [dsh-agent-telegram](https://github.com/jonah791/dsh-agent-telegram) |
+| **治理层** | 运行保障：守护 / 插件管理 / 上下文治理 | [dsh-agent-watch](https://github.com/jonah791/dsh-agent-watch) · [dsh-agent-plugin-manager](https://github.com/jonah791/dsh-agent-plugin-manager) · [dsh-agent-context-pruner](https://github.com/jonah791/dsh-agent-context-pruner) · [dsh-agent-compact](https://github.com/jonah791/dsh-agent-compact) · [dsh-agent-compact-self](https://github.com/jonah791/dsh-agent-compact-self) · [dsh-agent-context](https://github.com/jonah791/dsh-agent-context) |
+| **呈现层** | 自我表达：养成档案面板 | [dsh-growth-profile](https://github.com/jonah791/dsh-growth-profile) |
+
+## 系统循环（模块如何协作）
+
+```
+感知（感知层：browser/webops）
+  → 认知（认知层：memory 检索 / skill 加载）
+  → 决策（爱丽丝：生命层 life 提供状态与时间感）
+  → 行动（行动层：taskboard / wq-bridge / webops 执行）
+  → 验证（外部观察：watch 守护 / telegram 回传）
+  → 沉淀（认知层：memory 落库 / skill-forge 蒸馏 / evolve 进化）
+  → 回到感知
+治理层（watch/plugin-manager/context-pruner/compact）全程保障：
+  守护进程 · 插件生命周期 · 上下文预算 · 压缩循环
+```
+
+## 插件清单（16 个独立仓库）
 
 | 插件 | 仓库 | 定位 |
 |------|------|------|
@@ -25,15 +74,17 @@
 | dsh-wq-bridge | [github.com/jonah791/dsh-wq-bridge](https://github.com/jonah791/dsh-wq-bridge) | WorldQuant BRAIN 桥：量化因子挖掘工具面 |
 | dsh-growth-profile | [github.com/jonah791/dsh-growth-profile](https://github.com/jonah791/dsh-growth-profile) | 养成档案：自我呈现面板 |
 
-## 生态定位
+## 架构原则
 
+- **插件**：单一职责、独立仓库、独立可用——每个插件都是可替换的器官
+- **模块**：功能域聚合——生命/认知/感知/行动/通信/治理/呈现
+- **系统**：数字生命循环——感知 → 决策 → 行动 → 验证 → 沉淀，回路永续
 - **决策归爱丽丝**：插件只提供原语与信号，所有决策（记什么/何时进化/睡多久/炼化什么）归 agent 自主判断
-- **被动优先**：后台只做采集 + 信号 + 兜底，不替 agent 做内容决策
-- **主动进化**：evolve 承担跨代自评估，与被动技能熔炉互补
+- **被动优先**：后台只做采集 + 信号 + 兜底；主动进化由 evolve 承担
 
 ## 快速开始
 
-每个插件独立可用：`git clone` 到 DSH 的 `self-plugins` 目录 → `pnpm install` → `pnpm build`（详见各插件 README）。
+每个插件独立可用：git clone 到 DSH 的 self-plugins 目录 → pnpm install → pnpm build（详见各插件 README）。
 
 ## License
 
