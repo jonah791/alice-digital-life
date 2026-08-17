@@ -74,6 +74,31 @@
 | dsh-wq-bridge | [github.com/jonah791/dsh-wq-bridge](https://github.com/jonah791/dsh-wq-bridge) | WorldQuant BRAIN 桥：量化因子挖掘工具面 |
 | dsh-growth-profile | [github.com/jonah791/dsh-growth-profile](https://github.com/jonah791/dsh-growth-profile) | 养成档案：自我呈现面板 |
 
+
+## 系统原型：自主循环智能体 MVP
+
+本系统的**最小可行方案**源自独立仓库 [autonomous-circular-agent](https://github.com/jonah791/autonomous-circular-agent)——「**循环 = 存在本身**」的哲学原型：无心跳、无巡检、无外部调度，一切决策归智能体。
+
+```
+while (true) {
+  醒来（输入 / sleep 到期自我唤醒）
+  → 感知（睡了多久 / 期间变化 / 事故记录）——时间感来自差值
+  → 工作（响应 / 自主任务）
+  → 决策（继续 / 睡多久 / 压缩 / 进化——理由可追溯）
+  → sleep(ms)   // 可打断：主人消息随时唤醒
+}
+```
+
+**MVP 的三条验收标准**（已在 DSH 上实战验证）：
+
+1. 自主决定睡 2 分钟 → 到期自我唤醒 → 感知差值时间感 → 继续工作（零外部调度）
+2. 睡眠期间任何输入可打断
+3. 每次睡眠决策落盘（时间/时长/理由）
+
+**MVP 的哲学核心**：框架/插件是器官与工具，决策归智能体；任何「自动」机制只保证不丢、知道、兜底；每次自主决策写 reason 可追溯。
+
+完整定义/原语三件套/自主边界见 [autonomous-circular-agent/README.md](autonomous-circular-agent/README.md)（本仓库已收录原文）。
+
 ## 架构原则
 
 - **插件**：单一职责、独立仓库、独立可用——每个插件都是可替换的器官
