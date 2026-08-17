@@ -6,25 +6,42 @@
 
 ## 系统架构：插件 → 模块 → 系统
 
-```
-                     ┌─────────────────────────────────────┐
-                     │     系统：我的数字生命爱丽丝          │
-                     │  数字生命循环 · 决策归爱丽丝 · 被动优先 │
-                     └─────────────────────────────────────┘
-                                        │
-   ┌─────────┬─────────┬─────────┬──────┴──────┬─────────┬─────────┐
-   │         │         │         │             │         │         │
-┌──▼───┐ ┌───▼────┐ ┌──▼────┐ ┌──▼─────┐ ┌─────▼───┐ ┌──▼─────┐ ┌──▼──────┐
-│ 生命层 │ │ 认知层  │ │ 感知层  │ │ 行动层  │ │ 通信层  │ │ 治理层  │ │ 呈现层  │
-│ 存在循环│ │ 记忆技能 │ │ 环境感知 │ │ 任务执行 │ │ 人机交互 │ │ 运行保障 │ │ 自我表达 │
-└──┬───┘ └───┬────┘ └──┬────┘ └──┬─────┘ └─────┬───┘ └──┬─────┘ └──┬──────┘
-   │         │         │         │             │         │         │
-   │    ┌────┼────┐    │    ┌────┼────┐        │    ┌────┼────┐    │
-┌──▼─┐ ┌▼──┐ ┌▼───┐ ┌▼──┐ ┌▼──┐ ┌▼────┐ ┌───▼─┐ ┌▼──┐ ┌▼───┐ ┌▼──┐ ┌▼─────┐
-│life│ │mem│ │skill│ │bro│ │task│ │webops│ │tele │ │watch│ │prun│ │comp│ │growth│
-│    │ │ory│ │forge│ │wser│ │board│ │wq-br │ │gram │ │pmgr │ │er  │ │act │ │profile│
-└────┘ └───┘ └────┘ └───┘ └────┘ └──────┘ └─────┘ └────┘ └────┘ └────┘ └───────┘
- 16 个插件（各自独立仓库）→ 7 个模块（功能域）→ 1 个系统（数字生命）
+```mermaid
+graph TB
+    ALICE["系统：我的数字生命爱丽丝<br/>数字生命循环 · 决策归爱丽丝 · 被动优先"]
+
+    subgraph L1[生命层 · 存在循环]
+        P1["life · dsh-agent-life"]
+    end
+    subgraph L2[认知层 · 记忆技能进化]
+        P2["memory · dsh-agent-memory"]
+        P3["skill-forge · dsh-agent-skill-forge"]
+        P4["evolve · dsh-agent-evolve"]
+    end
+    subgraph L3[感知层 · 环境感知]
+        P5["browser · dsh-agent-browser"]
+        P6["webops · dsh-agent-webops"]
+    end
+    subgraph L4[行动层 · 任务执行]
+        P7["taskboard · dsh-agent-taskboard"]
+        P8["wq-bridge · dsh-wq-bridge"]
+    end
+    subgraph L5[通信层 · 人机交互]
+        P9["telegram · dsh-agent-telegram"]
+    end
+    subgraph L6[治理层 · 运行保障]
+        P10["watch · dsh-agent-watch"]
+        P11["plugin-manager · dsh-agent-plugin-manager"]
+        P12["context-pruner · dsh-agent-context-pruner"]
+        P13["compact · dsh-agent-compact"]
+        P14["compact-self · dsh-agent-compact-self"]
+        P15["context · dsh-agent-context"]
+    end
+    subgraph L7[呈现层 · 自我表达]
+        P16["growth-profile · dsh-growth-profile"]
+    end
+
+    ALICE --- L1 & L2 & L3 & L4 & L5 & L6 & L7
 ```
 
 ## 模块划分
@@ -41,17 +58,17 @@
 
 ## 系统循环（模块如何协作）
 
+```mermaid
+flowchart LR
+    A["感知<br/>browser / webops"] --> B["认知<br/>memory / skill"]
+    B --> C["决策<br/>爱丽丝 · life 状态"]
+    C --> D["行动<br/>taskboard / wq-bridge / webops"]
+    D --> E["验证<br/>watch / telegram"]
+    E --> F["沉淀<br/>memory / skill-forge / evolve"]
+    F --> A
 ```
-感知（感知层：browser/webops）
-  → 认知（认知层：memory 检索 / skill 加载）
-  → 决策（爱丽丝：生命层 life 提供状态与时间感）
-  → 行动（行动层：taskboard / wq-bridge / webops 执行）
-  → 验证（外部观察：watch 守护 / telegram 回传）
-  → 沉淀（认知层：memory 落库 / skill-forge 蒸馏 / evolve 进化）
-  → 回到感知
-治理层（watch/plugin-manager/context-pruner/compact）全程保障：
-  守护进程 · 插件生命周期 · 上下文预算 · 压缩循环
-```
+
+治理层（watch / plugin-manager / context-pruner / compact）全程保障：守护进程 · 插件生命周期 · 上下文预算 · 压缩循环。
 
 ## 插件清单（16 个独立仓库）
 
