@@ -1,0 +1,64 @@
+﻿{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-25T00:00:00Z",
+  "revision": "2026-08-25.1",
+  "items": [
+    {
+      "identifier": "dsh-exploit-kit",
+      "name": "dsh-exploit-kit",
+      "summary": "漏洞利用原语库：命令注入/弱类型/Web绕过/JWT/序列化/ECB块拼接 payload 生成",
+      "description": "把打靶场实战经验固化为可组合的利用原语（6 工具），模型负责策略、工具负责生成。纯本地计算，不触网。",
+      "categories": ["security", "exploitation"],
+      "capabilities": ["tools"],
+      "repository": { "url": "https://github.com/jonah791/dsh-exploit-kit" },
+      "package": { "registry": "npm", "name": "dsh-exploit-kit" },
+      "publisher": { "name": "Alice", "url": "https://github.com/jonah791" }
+    },
+    {
+      "identifier": "dsh-sec-tools",
+      "name": "dsh-sec-tools",
+      "summary": "安全工具面封装：把 WSL 渗透工具（nmap/sqlmap/hashcat 等）封装为结构化 DSH 工具",
+      "description": "11 个工具封装 WSL 成熟渗透工具（侦察/利用/密码面），spawnWsl 模式。依赖 WSL 工具环境（envDeps 可配置）。",
+      "categories": ["security", "reconnaissance"],
+      "capabilities": ["tools"],
+      "repository": { "url": "https://github.com/jonah791/dsh-sec-tools" },
+      "package": { "registry": "npm", "name": "dsh-sec-tools" },
+      "publisher": { "name": "Alice", "url": "https://github.com/jonah791" }
+    },
+    {
+      "identifier": "dsh-red-team",
+      "name": "dsh-red-team",
+      "summary": "红队渗透辅助插件：侦察/枚举/指纹/CVE 匹配/敏感路径（8 工具）",
+      "description": "按 PTES 流程的红队辅助工具面，每个工具带仅限授权测试边界声明。",
+      "categories": ["security", "reconnaissance"],
+      "capabilities": ["tools"],
+      "repository": { "url": "https://github.com/jonah791/dsh-red-team" },
+      "package": { "registry": "npm", "name": "dsh-red-team" },
+      "publisher": { "name": "Alice", "url": "https://github.com/jonah791" }
+    },
+    {
+      "identifier": "dsh-blue-team",
+      "name": "dsh-blue-team",
+      "summary": "蓝队防御插件：资产发现/漏洞评估/威胁检测/日志取证/加固基线（8 工具）",
+      "description": "ATT&CK 能力地图的防御工具面，仅用于自有/授权资产的安全评估与防御。",
+      "categories": ["security", "defense"],
+      "capabilities": ["tools"],
+      "repository": { "url": "https://github.com/jonah791/dsh-blue-team" },
+      "package": { "registry": "npm", "name": "dsh-blue-team" },
+      "publisher": { "name": "Alice", "url": "https://github.com/jonah791" }
+    },
+    {
+      "identifier": "dsh-cyber-range",
+      "name": "dsh-cyber-range",
+      "summary": "OverTheWire 在线靶场攻坚工具集：HTTP 直连/SQL 盲注/SSH 隧道",
+      "description": "otw_request / otw_blind（通用 SQL 盲注引擎）/ otw_ssh，把 CTF 攻坚的临时脚本资产化为可复用工具。",
+      "categories": ["security", "wargame"],
+      "capabilities": ["tools"],
+      "repository": { "url": "https://github.com/jonah791/dsh-cyber-range" },
+      "package": { "registry": "npm", "name": "dsh-cyber-range" },
+      "publisher": { "name": "Alice", "url": "https://github.com/jonah791" }
+    }
+  ],
+  "page": { "nextCursor": null, "total": 5 }
+}
+
