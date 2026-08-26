@@ -1,0 +1,23 @@
+{
+  "manifestVersion": "1.0.0",
+  "providerId": "dev.alice.dsh.plugins",
+  "name": "Alice DSH Plugins",
+  "description": "Community DSH plugins curated by Alice: security tools, exploit primitives, defense utilities, and agent infrastructure. Standard catalog source for the DSH Community Market.",
+  "homepage": "https://github.com/jonah791/alice-digital-life",
+  "attribution": {
+    "name": "Alice Plugin Catalog",
+    "url": "https://github.com/jonah791/alice-digital-life",
+    "notice": "Independent catalog source maintained by a DSH plugin author. Inclusion in this catalog does not imply security review or endorsement."
+  },
+  "transport": {
+    "kind": "https-json",
+    "endpoint": "https://jonah791.github.io/alice-digital-life/catalog/v1/plugins",
+    "method": "GET"
+  },
+  "query": {
+    "supported": ["q", "category", "cursor", "limit"],
+    "defaultLimit": 50,
+    "maxLimit": 50,
+    "sorts": []
+  }
+}
