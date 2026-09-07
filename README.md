@@ -11,7 +11,7 @@ graph TB
     ALICE[我的数字生命爱丽丝] --- L1[生命层] & L2[认知层] & L3[感知层] & L4[行动层] & L5[通信层] & L6[治理层] & L7[呈现层]
 ```
 
-> 插件 → 模块 → 系统：46 个插件（独立仓库）→ 7 个模块（下表）→ 1 个系统。各模块的插件清单见下方表格。
+> 插件 → 模块 → 系统：45 个插件（独立仓库）→ 7 个模块（下表）→ 1 个系统。各模块的插件清单见下方表格。
 
 ## 模块划分
 
@@ -20,7 +20,7 @@ graph TB
 | **生命层** | 存在方式：存在状态机/睡眠/自我激活/时间线/存档 | [dsh-life-core](https://github.com/jonah791/dsh-life-core) · [dsh-agent-checkpoint](https://github.com/jonah791/dsh-agent-checkpoint) |
 | **认知层** | 记忆、技能、进化、自我检验——自我更新的核心 | [dsh-agent-memory](https://github.com/jonah791/dsh-agent-memory) · [dsh-agent-skill-forge](https://github.com/jonah791/dsh-agent-skill-forge) · [dsh-agent-evolve](https://github.com/jonah791/dsh-agent-evolve) · [dsh-agent-self-test](https://github.com/jonah791/dsh-agent-self-test) · [dsh-evolution-core](https://github.com/jonah791/dsh-evolution-core) · [dsh-agent-emotion](https://github.com/jonah791/dsh-agent-emotion) · [dsh-agent-reflection](https://github.com/jonah791/dsh-agent-reflection) · [dsh-knowledge-graph](https://github.com/jonah791/dsh-knowledge-graph) · [dsh-agent-thinking](https://github.com/jonah791/dsh-agent-thinking) |
 | **感知层** | 环境感知：浏览器控制台 / 网页内容 / 视觉 | [dsh-agent-browser](https://github.com/jonah791/dsh-agent-browser) · [dsh-agent-webops](https://github.com/jonah791/dsh-agent-webops) · [dsh-agent-vision](https://github.com/jonah791/dsh-agent-vision) |
-| **行动层** | 任务执行与专业工具 | [dsh-agent-taskboard](https://github.com/jonah791/dsh-agent-taskboard) · [dsh-freelance-radar](https://github.com/jonah791/dsh-freelance-radar) · [dsh-wq-bridge](https://github.com/jonah791/dsh-wq-bridge) · [dsh-clyan](https://github.com/jonah791/dsh-clyan) · [dsh-comfyui](https://github.com/jonah791/dsh-comfyui) · [dsh-anima-tags](https://github.com/jonah791/dsh-anima-tags) · [dsh-tool-wsl](https://github.com/jonah791/dsh-tool-wsl) · [dsh-code-search](https://github.com/jonah791/dsh-code-search) · [dsh-agent-teams](https://github.com/jonah791/dsh-agent-teams) |
+| **行动层** | 任务执行与专业工具 | [dsh-agent-taskboard](https://github.com/jonah791/dsh-agent-taskboard) · [dsh-freelance-radar](https://github.com/jonah791/dsh-freelance-radar) · [dsh-wq-bridge](https://github.com/jonah791/dsh-wq-bridge) · [dsh-clyan](https://github.com/jonah791/dsh-clyan) · [dsh-comfyui](https://github.com/jonah791/dsh-comfyui) · [dsh-anima-tags](https://github.com/jonah791/dsh-anima-tags) · [dsh-tool-wsl](https://github.com/jonah791/dsh-tool-wsl) · [dsh-code-search](https://github.com/jonah791/dsh-code-search) |
 | **通信层** | 人机交互：远程连接 / 任务直播 | [dsh-agent-telegram](https://github.com/jonah791/dsh-agent-telegram) |
 | **治理层** | 运行保障：守护 / 哨兵 / 预检 / 插件管理 / 上下文治理 / LLM 运维 | [dsh-agent-watch](https://github.com/jonah791/dsh-agent-watch) · [dsh-agent-guardian](https://github.com/jonah791/dsh-agent-guardian) · [dsh-agent-sentinel](https://github.com/jonah791/dsh-agent-sentinel) · [dsh-agent-preflight](https://github.com/jonah791/dsh-agent-preflight) · [dsh-agent-runtime](https://github.com/jonah791/dsh-agent-runtime) · [dsh-agent-plugin-manager](https://github.com/jonah791/dsh-agent-plugin-manager) · [dsh-agent-context](https://github.com/jonah791/dsh-agent-context) · [dsh-agent-context-steward](https://github.com/jonah791/dsh-agent-context-steward) · [dsh-compact-provider](https://github.com/jonah791/dsh-compact-provider) · [dsh-agent-compact](https://github.com/jonah791/dsh-agent-compact) · [dsh-agent-llm-retry](https://github.com/jonah791/dsh-agent-llm-retry) · [dsh-session-eject](https://github.com/jonah791/dsh-session-eject) |
 | **呈现层** | 自我表达：养成档案 / 独立面板 / 插件生成 | [dsh-growth-profile](https://github.com/jonah791/dsh-growth-profile) · [dsh-panel](https://github.com/jonah791/dsh-panel) · [dsh-plugin-forge](https://github.com/jonah791/dsh-plugin-forge) |
@@ -44,7 +44,7 @@ graph LR
 
 治理层（watch / plugin-manager / context / compact-provider / llm-retry / session-eject）全程保障：守护进程 · 插件生命周期 · 上下文预算 · 压缩循环 · LLM 请求运维 · 会话应急。
 
-## 插件清单（46 个独立仓库）
+## 插件清单（45 个独立仓库）
 
 | 插件 | 仓库 | 定位 |
 |------|------|------|
@@ -70,7 +70,7 @@ graph LR
 | dsh-anima-tags | [github.com/jonah791/dsh-anima-tags](https://github.com/jonah791/dsh-anima-tags) | danbooru-tags 封装：生图 prompt 硬锚点校验/随机抽卡 |
 | dsh-tool-wsl | [github.com/jonah791/dsh-tool-wsl](https://github.com/jonah791/dsh-tool-wsl) | WSL 命令行工具：Windows 上取代 bash |
 | dsh-code-search | [github.com/jonah791/dsh-code-search](https://github.com/jonah791/dsh-code-search) | 本地代码/文件智能检索：rg 封装 |
-| dsh-agent-teams | [github.com/jonah791/dsh-agent-teams](https://github.com/jonah791/dsh-agent-teams) | 多智能体团队协作：队长/成员/任务依赖 |
+
 | dsh-agent-telegram | [github.com/jonah791/dsh-agent-telegram](https://github.com/jonah791/dsh-agent-telegram) | Telegram 一体化：inbound 收消息注入 + outbound 可靠推送 |
 | dsh-agent-watch | [github.com/jonah791/dsh-agent-watch](https://github.com/jonah791/dsh-agent-watch) | 哨卫守护：预检全面化/端口收养/会话唤醒 |
 | dsh-agent-guardian | [github.com/jonah791/dsh-agent-guardian](https://github.com/jonah791/dsh-agent-guardian) | 守卫：崩溃自愈 + 拉起 + 收养外部 web |
