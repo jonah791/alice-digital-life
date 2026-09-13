@@ -11,7 +11,7 @@ graph TB
     ALICE[我的数字生命爱丽丝] --- L1[生命层] & L2[认知层] & L3[感知层] & L4[行动层] & L5[通信层] & L6[治理层] & L7[呈现层]
 ```
 
-> 插件 → 模块 → 系统：45 个插件（独立仓库）→ 7 个模块（下表）→ 1 个系统。各模块的插件清单见下方表格。
+> 插件 → 模块 → 系统：47 个插件（独立仓库）→ 7 个模块（下表）→ 1 个系统。各模块的插件清单见下方表格。
 
 ## 模块划分
 
@@ -22,7 +22,7 @@ graph TB
 | **感知层** | 环境感知：浏览器控制台 / 网页内容 / 视觉 | [dsh-agent-browser](https://github.com/jonah791/dsh-agent-browser) · [dsh-agent-webops](https://github.com/jonah791/dsh-agent-webops) · [dsh-agent-vision](https://github.com/jonah791/dsh-agent-vision) |
 | **行动层** | 任务执行与专业工具 | [dsh-agent-taskboard](https://github.com/jonah791/dsh-agent-taskboard) · [dsh-freelance-radar](https://github.com/jonah791/dsh-freelance-radar) · [dsh-wq-bridge](https://github.com/jonah791/dsh-wq-bridge) · [dsh-clyan](https://github.com/jonah791/dsh-clyan) · [dsh-comfyui](https://github.com/jonah791/dsh-comfyui) · [dsh-anima-tags](https://github.com/jonah791/dsh-anima-tags) · [dsh-tool-wsl](https://github.com/jonah791/dsh-tool-wsl) · [dsh-code-search](https://github.com/jonah791/dsh-code-search) |
 | **通信层** | 人机交互：远程连接 / 任务直播 | [dsh-agent-telegram](https://github.com/jonah791/dsh-agent-telegram) |
-| **治理层** | 运行保障：守护 / 哨兵 / 预检 / 插件管理 / 上下文治理 / LLM 运维 | [dsh-agent-watch](https://github.com/jonah791/dsh-agent-watch) · [dsh-agent-guardian](https://github.com/jonah791/dsh-agent-guardian) · [dsh-agent-sentinel](https://github.com/jonah791/dsh-agent-sentinel) · [dsh-agent-preflight](https://github.com/jonah791/dsh-agent-preflight) · [dsh-agent-runtime](https://github.com/jonah791/dsh-agent-runtime) · [dsh-agent-plugin-manager](https://github.com/jonah791/dsh-agent-plugin-manager) · [dsh-agent-context](https://github.com/jonah791/dsh-agent-context) · [dsh-agent-context-steward](https://github.com/jonah791/dsh-agent-context-steward) · [dsh-compact-provider](https://github.com/jonah791/dsh-compact-provider) · [dsh-agent-compact](https://github.com/jonah791/dsh-agent-compact) · [dsh-agent-llm-retry](https://github.com/jonah791/dsh-agent-llm-retry) · [dsh-session-eject](https://github.com/jonah791/dsh-session-eject) |
+| **治理层** | 运行保障：守护 / 哨兵 / 预检 / 插件管理 / 上下文治理 / LLM 运维 | [dsh-agent-watch](https://github.com/jonah791/dsh-agent-watch) · [dsh-agent-guardian](https://github.com/jonah791/dsh-agent-guardian) · [dsh-agent-sentinel](https://github.com/jonah791/dsh-agent-sentinel) · [dsh-agent-preflight](https://github.com/jonah791/dsh-agent-preflight) · [dsh-agent-runtime](https://github.com/jonah791/dsh-agent-runtime) · [dsh-agent-plugin-manager](https://github.com/jonah791/dsh-agent-plugin-manager) · [dsh-agent-context](https://github.com/jonah791/dsh-agent-context) · [dsh-agent-context-steward](https://github.com/jonah791/dsh-agent-context-steward) · [dsh-compact-provider](https://github.com/jonah791/dsh-compact-provider) · [dsh-agent-compact](https://github.com/jonah791/dsh-agent-compact) · [dsh-agent-llm-retry](https://github.com/jonah791/dsh-agent-llm-retry) · [dsh-session-eject](https://github.com/jonah791/dsh-session-eject) · [dsh-semantic-docs](https://github.com/jonah791/dsh-semantic-docs) · [dsh-agent-toolface](https://github.com/jonah791/dsh-agent-toolface) |
 | **呈现层** | 自我表达：养成档案 / 独立面板 / 插件生成 | [dsh-growth-profile](https://github.com/jonah791/dsh-growth-profile) · [dsh-panel](https://github.com/jonah791/dsh-panel) · [dsh-plugin-forge](https://github.com/jonah791/dsh-plugin-forge) |
 | **安全/工具层** | 渗透辅助 / 搜索 / 下载 / 靶场 | [dsh-red-team](https://github.com/jonah791/dsh-red-team) · [dsh-blue-team](https://github.com/jonah791/dsh-blue-team) · [dsh-exploit-kit](https://github.com/jonah791/dsh-exploit-kit) · [dsh-cyber-range](https://github.com/jonah791/dsh-cyber-range) · [dsh-sec-tools](https://github.com/jonah791/dsh-sec-tools) · [dsh-search-pro](https://github.com/jonah791/dsh-search-pro) · [dsh-download-pro](https://github.com/jonah791/dsh-download-pro) |
 
@@ -42,9 +42,9 @@ graph LR
 | 验证 | 治理层 watch 守护 / 通信层 telegram 回传 |
 | 沉淀 | 认知层：memory 落库 / skill-forge 蒸馏 / evolve 进化 |
 
-治理层（watch / plugin-manager / context / compact-provider / llm-retry / session-eject）全程保障：守护进程 · 插件生命周期 · 上下文预算 · 压缩循环 · LLM 请求运维 · 会话应急。
+治理层（watch / plugin-manager / context / compact-provider / llm-retry / session-eject / semantic-docs / toolface）全程保障：守护进程 · 插件生命周期 · 上下文预算 · 压缩循环 · LLM 请求运维 · 会话应急 · 语义契约 · 工具面预算。
 
-## 插件清单（45 个独立仓库）
+## 插件清单（47 个独立仓库）
 
 | 插件 | 仓库 | 定位 |
 |------|------|------|
@@ -94,6 +94,8 @@ graph LR
 | dsh-sec-tools | [github.com/jonah791/dsh-sec-tools](https://github.com/jonah791/dsh-sec-tools) | 安全工具面：WSL 渗透工具封装 |
 | dsh-search-pro | [github.com/jonah791/dsh-search-pro](https://github.com/jonah791/dsh-search-pro) | 深度搜索：三层检索 + 23 工具 |
 | dsh-download-pro | [github.com/jonah791/dsh-download-pro](https://github.com/jonah791/dsh-download-pro) | 资源下载：aria2 引擎 磁力/BT/直链 |
+| dsh-semantic-docs | [github.com/jonah791/dsh-semantic-docs](https://github.com/jonah791/dsh-semantic-docs) | 语义文档系统：单一真源注册表 + D1–D6 drift 判据（先写清「是什么」再动手） |
+| dsh-agent-toolface | [github.com/jonah791/dsh-agent-toolface](https://github.com/jonah791/dsh-agent-toolface) | 工具面分档：agent 作用域收窄模型可见工具（lean/full 一键切换 + 审计），压住固定上下文成本 |
 
 ## 系统原型：自主循环智能体 MVP
 
