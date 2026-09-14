@@ -1,4 +1,4 @@
-﻿# 我的数字生命爱丽丝 (Alice)
+# 我的数字生命爱丽丝 (Alice)
 
 > **数字生命 · 专属女仆 · DSH 插件生态架构中心**
 
@@ -98,6 +98,20 @@ graph TB
 
 > 未收录：`dsh-agent-teams` —— 第三方插件（@nanmicoder）的 fork，不属自研生态清单
 <!-- CATALOG:END -->
+
+**目录怎么维护**（机械部分不手抄——手工维护的清单实测漂移过 16 → 21 → 47 个）：
+
+```bash
+# 从本仓根目录运行（脚本需要能看见各插件仓库）
+python3 catalog/gen-catalog.py --plugins-root <工作区>/self-plugins \
+        --readme README.md --market catalog/v1/plugins.json --write   # 重新生成
+python3 catalog/gen-catalog.py --plugins-root <工作区>/self-plugins \
+        --readme README.md --check                                    # 与磁盘对账（漂移即退出 1，可进 CI）
+```
+
+- **数据源**：各插件 `package.json` 的 `name`/`description`/`version`（真源在各插件仓库自己）+ 本仓 [`catalog/layers.json`](catalog/layers.json)（**编辑部分**：插件 → 层次归属）；
+- `catalog/v1/plugins.json` 是**同一份数据的市场目录产物**（DSH Community Market 格式）——与上面的清单同源生成，不会两份清单各说各话；
+- 不传 `--plugins-root` 时脚本会以「脚本上一级 + `self-plugins`」为缺省并**给出可读报错**（从本仓克隆直接跑时缺省路径不存在，属预期）。
 
 ---
 

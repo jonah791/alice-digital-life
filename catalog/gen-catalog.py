@@ -43,6 +43,15 @@ def load_layers() -> dict:
 
 def scan_plugins() -> dict[str, dict]:
     """磁盘上真实存在的自研插件：目录名 → {version, description}。"""
+    if not os.path.isdir(PLUGIN_ROOT):
+        # 失败要可读：从中心仓克隆里直接跑本脚本时，缺省路径不存在是**最常见**的误用
+        sys.exit(
+            f'插件根目录不存在: {PLUGIN_ROOT}\n'
+            f'  提示：本脚本需要在能看见插件仓库的位置运行——\n'
+            f'        python3 gen-catalog.py --plugins-root <工作区>/self-plugins \\\n'
+            f'                               [--readme README.md] [--market catalog/v1/plugins.json] [--check]\n'
+            f'  缺省值是「脚本所在目录的上一级 + self-plugins」，只在工作区布局下成立。'
+        )
     out: dict[str, dict] = {}
     for name in sorted(os.listdir(PLUGIN_ROOT)):
         d = os.path.join(PLUGIN_ROOT, name)
