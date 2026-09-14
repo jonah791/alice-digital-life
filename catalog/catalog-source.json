@@ -11,7 +11,7 @@
   },
   "transport": {
     "kind": "https-json",
-    "endpoint": "https://jonah791.github.io/alice-digital-life/catalog/v1/plugins",
+    "endpoint": "https://jonah791.github.io/alice-digital-life/catalog/v1/plugins.json",
     "method": "GET"
   },
   "query": {

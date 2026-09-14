@@ -1,0 +1,74 @@
+{
+  "_comment": "生态中心仓目录的「编辑部分」：插件 → 层次归属。机械部分（名称/一句话定位/计数）由 scripts/gen-hub-catalog.py 从各插件 package.json 生成，不在此维护。",
+  "_layers": [
+    { "id": "life",     "name": "生命层", "duty": "存在方式：存在状态机 / 睡眠 / 自我激活 / 时间线 / 存档" },
+    { "id": "cognition","name": "认知层", "duty": "记忆、技能、进化、自我检验——自我更新的核心" },
+    { "id": "perceive", "name": "感知层", "duty": "环境感知：浏览器控制台 / 网页内容 / 视觉" },
+    { "id": "act",      "name": "行动层", "duty": "任务执行与专业工具" },
+    { "id": "comm",     "name": "通信层", "duty": "人机交互：远程连接 / 任务直播" },
+    { "id": "govern",   "name": "治理层", "duty": "运行保障：守护 / 哨兵 / 预检 / 插件管理 / 上下文治理 / LLM 运维 / 契约与证据" },
+    { "id": "present",  "name": "呈现层", "duty": "自我表达：养成档案 / 独立面板 / 插件生成" },
+    { "id": "security", "name": "安全层", "duty": "授权测试与防御：侦察 / 利用原语 / 靶场 / 加固（仅限授权场景）" }
+  ],
+  "assign": {
+    "dsh-life-core": "life",
+    "dsh-agent-checkpoint": "life",
+
+    "dsh-agent-memory": "cognition",
+    "dsh-agent-skill-forge": "cognition",
+    "dsh-agent-evolve": "cognition",
+    "dsh-agent-self-test": "cognition",
+    "dsh-evolution-core": "cognition",
+    "dsh-agent-emotion": "cognition",
+    "dsh-agent-reflection": "cognition",
+    "dsh-knowledge-graph": "cognition",
+    "dsh-agent-thinking": "cognition",
+
+    "dsh-agent-browser": "perceive",
+    "dsh-agent-webops": "perceive",
+    "dsh-agent-vision": "perceive",
+
+    "dsh-agent-taskboard": "act",
+    "dsh-freelance-radar": "act",
+    "dsh-wq-bridge": "act",
+    "dsh-clyan": "act",
+    "dsh-comfyui": "act",
+    "dsh-anima-tags": "act",
+    "dsh-tool-wsl": "act",
+    "dsh-code-search": "act",
+    "dsh-search-pro": "act",
+    "dsh-download-pro": "act",
+    "dsh-video-studio": "act",
+
+    "dsh-agent-telegram": "comm",
+
+    "dsh-agent-watch": "govern",
+    "dsh-agent-guardian": "govern",
+    "dsh-agent-sentinel": "govern",
+    "dsh-agent-preflight": "govern",
+    "dsh-agent-runtime": "govern",
+    "dsh-agent-plugin-manager": "govern",
+    "dsh-agent-context": "govern",
+    "dsh-agent-context-steward": "govern",
+    "dsh-compact-provider": "govern",
+    "dsh-agent-compact": "govern",
+    "dsh-agent-llm-retry": "govern",
+    "dsh-session-eject": "govern",
+    "dsh-semantic-docs": "govern",
+    "dsh-agent-toolface": "govern",
+    "dsh-plugin-bootreport": "govern",
+
+    "dsh-growth-profile": "present",
+    "dsh-panel": "present",
+    "dsh-plugin-forge": "present",
+
+    "dsh-red-team": "security",
+    "dsh-blue-team": "security",
+    "dsh-exploit-kit": "security",
+    "dsh-cyber-range": "security",
+    "dsh-sec-tools": "security"
+  },
+  "exclude": {
+    "dsh-agent-teams": "第三方插件（@nanmicoder）的 fork，不属自研生态清单"
+  }
+}
