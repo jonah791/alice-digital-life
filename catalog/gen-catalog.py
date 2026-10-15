@@ -73,11 +73,15 @@ def scan_plugins() -> dict[str, dict]:
 def render(layers: dict, plugins: dict[str, dict]) -> str:
     assign: dict[str, str] = layers['assign']
     exclude: dict[str, str] = layers.get('exclude', {})
-    owners = {**assign, **exclude}
     lines: list[str] = []
 
-    missing = [p for p in plugins if p not in owners]
-    ghost = [p for p in owners if p not in plugins]
+    # 2026-10-15 修：exclude 的语义是「**不属**本清单」（第三方 fork 等），
+    # 此前它被并进 owners ⇒ 一个已从磁盘卸载的第三方 fork（dsh-agent-teams）
+    # 会被误报成「清单里有但磁盘无」。⇒ 两类分开算，各问各的问题：
+    #   missing = 磁盘有，但**既未归类、也未说明排除**（真·未归类，需处理）
+    #   ghost   = **assign 里**有，但磁盘无（真·幽灵，需清理）
+    missing = [p for p in plugins if p not in assign and p not in exclude]
+    ghost = [p for p in assign if p not in plugins]
     if missing or ghost:
         lines.append(f'> ⚠ 目录与磁盘不一致：未归类 {len(missing)} 个 {missing or ""}'
                      f'；清单里有但磁盘无 {len(ghost)} 个 {ghost or ""}')
@@ -205,6 +209,10 @@ def main() -> int:
             print(f'README 缺标记 {START} / {END}'); return 1
         new = re.sub(re.escape(START) + r'.*?' + re.escape(END),
                      START + '\n' + block + '\n' + END, text, flags=re.S)
+        # 徽章里的插件数同样是**机械部分**——一并同步。2026-10-15 加：
+        # 实测徽章停在 `plugins-49` 而清单已 73，又一次印证「手抄必漂移」。
+        total = sum(1 for p in plugins if p in layers['assign'])
+        new = re.sub(r'(badge/plugins-)\d+', lambda m: f'{m.group(1)}{total}', new)
         with open(args.readme, 'w', encoding='utf-8', newline='\n') as fh:
             fh.write(new)
         print(f'已写入 {args.readme}（{len(block.splitlines())} 行目录块）')

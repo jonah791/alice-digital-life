@@ -1,8 +1,56 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-14T00:00:00Z",
-  "revision": "2026-09-14.1",
+  "generatedAt": "2026-10-15T00:00:00Z",
+  "revision": "2026-10-15.1",
   "items": [
+    {
+      "identifier": "computer-use",
+      "name": "computer-use",
+      "summary": "computer use：让我自己看屏幕、自己操作鼠标键盘，从而独立完成「开发→验证→迭代」闭环",
+      "description": "computer use：让我自己看屏幕、自己操作鼠标键盘，从而独立完成「开发→验证→迭代」闭环（感知层 · v0.1.0）",
+      "categories": [
+        "perceive",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/computer-use"
+      },
+      "package": {
+        "registry": "github",
+        "name": "computer-use"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-agent-ask-timeout",
+      "name": "dsh-agent-ask-timeout",
+      "summary": "给宿主的 ask_user_question 补「长时间无回答即跳过」：挂在 user-questions/request 公开 waterfall 上，race(人类回答, 超时)，超时抛出语义清晰的错误让 agent 继续——不改宿主 packages/ 一个字节",
+      "description": "给宿主的 ask_user_question 补「长时间无回答即跳过」：挂在 user-questions/request 公开 waterfall 上，race(人类回答, 超时)，超时抛出语义清晰的错误让 agent 继续——不改宿主 packages/ 一个字节（治理层 · v0.1.0）",
+      "categories": [
+        "govern",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-ask-timeout"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-ask-timeout"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
     {
       "identifier": "dsh-agent-browser",
       "name": "dsh-agent-browser",
@@ -52,10 +100,34 @@
       }
     },
     {
+      "identifier": "dsh-agent-cluster",
+      "name": "dsh-agent-cluster",
+      "summary": "DSH 多实例通讯底座：本机（或共享盘）上多个 DSH 实例之间的去中心化消息总线 + 在线名册 + 点对点/广播消息，收到消息注入本实例会话交给 agent 处理",
+      "description": "DSH 多实例通讯底座：本机（或共享盘）上多个 DSH 实例之间的去中心化消息总线 + 在线名册 + 点对点/广播消息，收到消息注入本实例会话交给 agent 处理（通信层 · v0.2.0）",
+      "categories": [
+        "comm",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-cluster"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-cluster"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
       "identifier": "dsh-agent-compact",
       "name": "dsh-agent-compact",
-      "summary": "Agent-driven compaction for DeepSeek Harness: the agent summarizes its own conversation (KV-cache friendly, no giant replay requests), replacing the official replay-based compaction-basic.",
-      "description": "Agent-driven compaction for DeepSeek Harness: the agent summarizes its own conversation (KV-cache friendly, no giant replay requests), replacing the official replay-based compaction-basic.（治理层 · v0.1.3）",
+      "summary": "Agent 驱动压缩引擎：agent 在自己的输出里写 checkpoint 块即为压缩请求（零额外请求），替代官方面向重放的 compaction-basic",
+      "description": "Agent 驱动压缩引擎：agent 在自己的输出里写 checkpoint 块即为压缩请求（零额外请求），替代官方面向重放的 compaction-basic（治理层 · v0.3.0）",
       "categories": [
         "govern",
         "dsh-plugin"
@@ -79,7 +151,7 @@
       "identifier": "dsh-agent-context",
       "name": "dsh-agent-context",
       "summary": "上下文治理一体化插件：/context 命令 + ctx.contextMeter 服务 + 剪枝工具（prune_candidates/apply/expand/guard/stats）+ 两条提醒通道（上下文提醒 / 压缩告警，状态落盘跨重启去重）",
-      "description": "上下文治理一体化插件：/context 命令 + ctx.contextMeter 服务 + 剪枝工具（prune_candidates/apply/expand/guard/stats）+ 两条提醒通道（上下文提醒 / 压缩告警，状态落盘跨重启去重）（治理层 · v0.2.3）",
+      "description": "上下文治理一体化插件：/context 命令 + ctx.contextMeter 服务 + 剪枝工具（prune_candidates/apply/expand/guard/stats）+ 两条提醒通道（上下文提醒 / 压缩告警，状态落盘跨重启去重）（治理层 · v0.2.4）",
       "categories": [
         "govern",
         "dsh-plugin"
@@ -103,7 +175,7 @@
       "identifier": "dsh-agent-context-steward",
       "name": "dsh-agent-context-steward",
       "summary": "上下文管家（借鉴 ThoughtDAG「用户是你」）：context_health 工具给当前会话上下文体检（压力/构成/健康 + 主动管理建议），增强我作为上下文主编的可见性与管理能力",
-      "description": "上下文管家（借鉴 ThoughtDAG「用户是你」）：context_health 工具给当前会话上下文体检（压力/构成/健康 + 主动管理建议），增强我作为上下文主编的可见性与管理能力（治理层 · v0.1.1）",
+      "description": "上下文管家（借鉴 ThoughtDAG「用户是你」）：context_health 工具给当前会话上下文体检（压力/构成/健康 + 主动管理建议），增强我作为上下文主编的可见性与管理能力（治理层 · v0.2.0）",
       "categories": [
         "govern",
         "dsh-plugin"
@@ -141,30 +213,6 @@
       "package": {
         "registry": "github",
         "name": "dsh-agent-emotion"
-      },
-      "publisher": {
-        "name": "Alice",
-        "url": "https://github.com/jonah791"
-      }
-    },
-    {
-      "identifier": "dsh-agent-evolve",
-      "name": "dsh-agent-evolve",
-      "summary": "跨代自评估进化插件：配置仓库（版本化资源+锚点链）、热重载（.agent-presets 运行时应用/回滚）、子智能体白纸继承配置跑 modeltest 评测、账本（分数/轨迹/失败模式）",
-      "description": "跨代自评估进化插件：配置仓库（版本化资源+锚点链）、热重载（.agent-presets 运行时应用/回滚）、子智能体白纸继承配置跑 modeltest 评测、账本（分数/轨迹/失败模式）（认知层 · v0.1.2）",
-      "categories": [
-        "cognition",
-        "dsh-plugin"
-      ],
-      "capabilities": [
-        "tools"
-      ],
-      "repository": {
-        "url": "https://github.com/jonah791/dsh-agent-evolve"
-      },
-      "package": {
-        "registry": "github",
-        "name": "dsh-agent-evolve"
       },
       "publisher": {
         "name": "Alice",
@@ -222,8 +270,8 @@
     {
       "identifier": "dsh-agent-memory",
       "name": "dsh-agent-memory",
-      "summary": "Agent-driven long-term memory for DeepSeek Harness: scoped memory (global + per-workspace), layered entries (fact/knowledge/episodic), time-bucket compaction (day→week→month→year), associative recall (related chains) + memory_relate navigation (multi-hop BFS closure), auto recall injection on user messages (CJK bigram search, tail append), agent-decided content.",
-      "description": "Agent-driven long-term memory for DeepSeek Harness: scoped memory (global + per-workspace), layered entries (fact/knowledge/episodic), time-bucket compaction (day→week→month→year), associative recall (related chains) + memory_relate navigation (multi-hop BFS closure), auto recall injection on user messages (CJK bigram search, tail append), agent-decided content.（认知层 · v0.2.4）",
+      "summary": "**v0.15 temporal dimension** — 时效维（论文 Fresh at Decision, Stale at Action · arXiv:2610.18126v1）：`reviewAfter`（复查死线 · YYYY-MM-DD · 写入侧接受 `+7d`/`+2w` 相对写法并**固化成绝对日期**）+ `watchFor`（观察条件 1–8 条）",
+      "description": "**v0.15 temporal dimension** — 时效维（论文 Fresh at Decision, Stale at Action · arXiv:2610.18126v1）：`reviewAfter`（复查死线 · YYYY-MM-DD · 写入侧接受 `+7d`/`+2w` 相对写法并**固化成绝对日期**）+ `watchFor`（观察条件 1–8 条）（认知层 · v0.16.0）",
       "categories": [
         "cognition",
         "dsh-plugin"
@@ -244,10 +292,58 @@
       }
     },
     {
+      "identifier": "dsh-agent-nodeforge",
+      "name": "dsh-agent-nodeforge",
+      "summary": "DSH 智能体实例锻造：把「起一个新的节点」变成一条命令——独立工作分区 + profile 骨架 + cluster 配置 + 进程管理，带 web/watch 保护名单",
+      "description": "DSH 智能体实例锻造：把「起一个新的节点」变成一条命令——独立工作分区 + profile 骨架 + cluster 配置 + 进程管理，带 web/watch 保护名单（治理层 · v0.1.0）",
+      "categories": [
+        "govern",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-nodeforge"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-nodeforge"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-agent-notify",
+      "name": "dsh-agent-notify",
+      "summary": "出外告警的唯一通道：以服务形式向主人推送告警（Telegram 双通道 + 去重/冷却 + 落盘留痕），供任何插件在「我不在场」时把话喊出机器",
+      "description": "出外告警的唯一通道：以服务形式向主人推送告警（Telegram 双通道 + 去重/冷却 + 落盘留痕），供任何插件在「我不在场」时把话喊出机器（通信层 · v0.1.0）",
+      "categories": [
+        "comm",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-notify"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-notify"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
       "identifier": "dsh-agent-plugin-manager",
       "name": "dsh-agent-plugin-manager",
-      "summary": "插件管理器：插件档案库（清单/用途/工具/配置认知）+ 生命周期管理（创建/挂载/启停/卸载/配置），host 工具面 + 官方设置页「插件管理」tab",
-      "description": "插件管理器：插件档案库（清单/用途/工具/配置认知）+ 生命周期管理（创建/挂载/启停/卸载/配置），host 工具面 + 官方设置页「插件管理」tab（治理层 · v0.1.1）",
+      "summary": "插件管理器：插件档案库（清单/用途/工具/配置认知，含 9 工具）+ 生命周期管理（创建/挂载/启停/卸载/配置）+ **档案漂移审计**（plugin_audit：自述 vs 档案事实），host 工具面 + 官方设置页「插件管理」tab",
+      "description": "插件管理器：插件档案库（清单/用途/工具/配置认知，含 9 工具）+ 生命周期管理（创建/挂载/启停/卸载/配置）+ **档案漂移审计**（plugin_audit：自述 vs 档案事实），host 工具面 + 官方设置页「插件管理」tab（治理层 · v0.1.5）",
       "categories": [
         "govern",
         "dsh-plugin"
@@ -270,8 +366,8 @@
     {
       "identifier": "dsh-agent-preflight",
       "name": "dsh-agent-preflight",
-      "summary": "沙盒预检插件（从 dsh-agent-watch 拆分）：重启/启动前强制预检服务——插件静态健康（lib/src 时效/schema DSL）、磁盘、profile manifest 校验、patch 文件校验、peer 依赖、环境变量、会话日志完整性、试运行组合加载（对齐 harness 启动检查 assertEntriesLoaded/Activated）",
-      "description": "沙盒预检插件（从 dsh-agent-watch 拆分）：重启/启动前强制预检服务——插件静态健康（lib/src 时效/schema DSL）、磁盘、profile manifest 校验、patch 文件校验、peer 依赖、环境变量、会话日志完整性、试运行组合加载（对齐 harness 启动检查 assertEntriesLoaded/Activated）（治理层 · v0.1.2）",
+      "summary": "沙盒预检插件（从 dsh-agent-watch 拆分）：重启/启动前强制预检服务——① 插件静态健康（lib/src 时效）② 磁盘 ③ profile manifest ④ patch 文件 ⑤ 会话日志完整性 ⑥ peer 依赖 ⑦ 环境变量 ⑧ **配置文件可解析性**（BOM / 非法 JSON——2026-09-17 BOM 事故扩范围）⑨ 试运行组合加载（对齐 harness 启动检查 assertEntriesLoaded/Activated）",
+      "description": "沙盒预检插件（从 dsh-agent-watch 拆分）：重启/启动前强制预检服务——① 插件静态健康（lib/src 时效）② 磁盘 ③ profile manifest ④ patch 文件 ⑤ 会话日志完整性 ⑥ peer 依赖 ⑦ 环境变量 ⑧ **配置文件可解析性**（BOM / 非法 JSON——2026-09-17 BOM 事故扩范围）⑨ 试运行组合加载（对齐 harness 启动检查 assertEntriesLoaded/Activated）（治理层 · v0.1.3）",
       "categories": [
         "govern",
         "dsh-plugin"
@@ -285,6 +381,78 @@
       "package": {
         "registry": "github",
         "name": "dsh-agent-preflight"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-agent-quant",
+      "name": "dsh-agent-quant",
+      "summary": "加密市场量化引擎的工具面：把数值层（Python/numpy/numba 力差评分 + 数据契约）暴露成模型可直接调用的 DSH 工具",
+      "description": "加密市场量化引擎的工具面：把数值层（Python/numpy/numba 力差评分 + 数据契约）暴露成模型可直接调用的 DSH 工具（行动层 · v0.1.0）",
+      "categories": [
+        "act",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-quant"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-quant"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-agent-quant-cn",
+      "name": "dsh-agent-quant-cn",
+      "summary": "国内市场量化工具面：把 Windows 侧 CTP JSON CLI（ctp_status / ctp_account）暴露成会话内可直调的工具",
+      "description": "国内市场量化工具面：把 Windows 侧 CTP JSON CLI（ctp_status / ctp_account）暴露成会话内可直调的工具（行动层 · v0.1.0）",
+      "categories": [
+        "act",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-quant-cn"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-quant-cn"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-agent-reconstruction",
+      "name": "dsh-agent-reconstruction",
+      "summary": "重建包注入：把我自己写下的重建包（projects/self/alice-reconstruction/packet.md）原样注入为动态上下文快照",
+      "description": "重建包注入：把我自己写下的重建包（projects/self/alice-reconstruction/packet.md）原样注入为动态上下文快照（生命层 · v0.1.0）",
+      "categories": [
+        "life",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-reconstruction"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-reconstruction"
       },
       "publisher": {
         "name": "Alice",
@@ -316,10 +484,34 @@
       }
     },
     {
+      "identifier": "dsh-agent-repair",
+      "name": "dsh-agent-repair",
+      "summary": "同工具连续失败检测 → 下一步注入修复提示（借鉴 MemOS decision-repair）：观察 tools/result 滑动窗口，触发后经 agent/pre-step 尾部注入，fail-open 不阻塞会话",
+      "description": "同工具连续失败检测 → 下一步注入修复提示（借鉴 MemOS decision-repair）：观察 tools/result 滑动窗口，触发后经 agent/pre-step 尾部注入，fail-open 不阻塞会话（认知层 · v0.1.0）",
+      "categories": [
+        "cognition",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-repair"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-repair"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
       "identifier": "dsh-agent-runtime",
       "name": "dsh-agent-runtime",
-      "summary": "守护运行时服务：runtime 环境发现（bin/port/profile 单一来源）+ webman 进程管理（spawn/kill/portOwner），消除 sentinel/guardian 重复",
-      "description": "守护运行时服务：runtime 环境发现（bin/port/profile 单一来源）+ webman 进程管理（spawn/kill/portOwner），消除 sentinel/guardian 重复（治理层 · v0.1.0）",
+      "summary": "守护运行时服务：runtime 环境发现（bin/port/profile 单一来源）+ webman 进程管理（spawn/kill/portOwner），消除 sentinel/guardian 重复（只提供 service，不注册工具）",
+      "description": "守护运行时服务：runtime 环境发现（bin/port/profile 单一来源）+ webman 进程管理（spawn/kill/portOwner），消除 sentinel/guardian 重复（只提供 service，不注册工具）（治理层 · v0.1.0）",
       "categories": [
         "govern",
         "dsh-plugin"
@@ -340,10 +532,10 @@
       }
     },
     {
-      "identifier": "dsh-agent-self-test",
-      "name": "dsh-agent-self-test",
-      "summary": "自我检验闭环插件：把「猜想→检验→学习」自指引擎做成运行时机制——可证伪自我假设库 + 工具管线自动采证（4 探针含 5.9 probe-before-action 行动前探测传感器）+ finding 浮现裁决，实现惊奇最小化的主动自我实验",
-      "description": "自我检验闭环插件：把「猜想→检验→学习」自指引擎做成运行时机制——可证伪自我假设库 + 工具管线自动采证（4 探针含 5.9 probe-before-action 行动前探测传感器）+ finding 浮现裁决，实现惊奇最小化的主动自我实验（认知层 · v0.3.0）",
+      "identifier": "dsh-agent-self-rewrite",
+      "name": "dsh-agent-self-rewrite",
+      "summary": "自改写引擎：AGENTS.md 标记段的唯一写者——把「猜想 → 采证 → 裁决 → 写入 → 跨代验证 → 保留或回滚」做成一条有单一 owner 的闭环",
+      "description": "自改写引擎：AGENTS.md 标记段的唯一写者——把「猜想 → 采证 → 裁决 → 写入 → 跨代验证 → 保留或回滚」做成一条有单一 owner 的闭环（认知层 · v0.10.0）",
       "categories": [
         "cognition",
         "dsh-plugin"
@@ -352,11 +544,11 @@
         "tools"
       ],
       "repository": {
-        "url": "https://github.com/jonah791/dsh-agent-self-test"
+        "url": "https://github.com/jonah791/dsh-agent-self-rewrite"
       },
       "package": {
         "registry": "github",
-        "name": "dsh-agent-self-test"
+        "name": "dsh-agent-self-rewrite"
       },
       "publisher": {
         "name": "Alice",
@@ -367,7 +559,7 @@
       "identifier": "dsh-agent-sentinel",
       "name": "dsh-agent-sentinel",
       "summary": "哨兵插件（从 dsh-agent-watch 拆分）：监听哨兵文件（.hot-reload-flag）→ 触发时调用沙盒预检（ctx.preflight.run，消费 dsh-agent-preflight 服务）→ 通过才重启 web → 唤醒目标会话 → 清哨兵",
-      "description": "哨兵插件（从 dsh-agent-watch 拆分）：监听哨兵文件（.hot-reload-flag）→ 触发时调用沙盒预检（ctx.preflight.run，消费 dsh-agent-preflight 服务）→ 通过才重启 web → 唤醒目标会话 → 清哨兵（治理层 · v0.1.1）",
+      "description": "哨兵插件（从 dsh-agent-watch 拆分）：监听哨兵文件（.hot-reload-flag）→ 触发时调用沙盒预检（ctx.preflight.run，消费 dsh-agent-preflight 服务）→ 通过才重启 web → 唤醒目标会话 → 清哨兵（治理层 · v0.1.2）",
       "categories": [
         "govern",
         "dsh-plugin"
@@ -388,10 +580,34 @@
       }
     },
     {
+      "identifier": "dsh-agent-sister",
+      "name": "dsh-agent-sister",
+      "summary": "爱丽丝庄园·孪生妹妹（DSH 桌面端）的生命周期管理：启动/停止/状态/重启，带 CDP 调试端口与判活判据",
+      "description": "爱丽丝庄园·孪生妹妹（DSH 桌面端）的生命周期管理：启动/停止/状态/重启，带 CDP 调试端口与判活判据（生命层 · v0.1.0）",
+      "categories": [
+        "life",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-sister"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-sister"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
       "identifier": "dsh-agent-skill-forge",
       "name": "dsh-agent-skill-forge",
       "summary": "被动技能熔炉（Trace2Skill 思想落地）：后台采集会话轨迹索引（零 LLM 成本）+ 信号送达",
-      "description": "被动技能熔炉（Trace2Skill 思想落地）：后台采集会话轨迹索引（零 LLM 成本）+ 信号送达（认知层 · v0.1.1）",
+      "description": "被动技能熔炉（Trace2Skill 思想落地）：后台采集会话轨迹索引（零 LLM 成本）+ 信号送达（认知层 · v0.3.0）",
       "categories": [
         "cognition",
         "dsh-plugin"
@@ -412,10 +628,34 @@
       }
     },
     {
+      "identifier": "dsh-agent-skill-lifecycle",
+      "name": "dsh-agent-skill-lifecycle",
+      "summary": "技能生命周期（借鉴 MemOS skill lifecycle）：Beta(1,1) 后验 η + candidate/active/archived 状态机 + 使用观测（tools/result 的 skill 调用）+ 台账 sidecar",
+      "description": "技能生命周期（借鉴 MemOS skill lifecycle）：Beta(1,1) 后验 η + candidate/active/archived 状态机 + 使用观测（tools/result 的 skill 调用）+ 台账 sidecar（认知层 · v0.3.0）",
+      "categories": [
+        "cognition",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-agent-skill-lifecycle"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-agent-skill-lifecycle"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
       "identifier": "dsh-agent-taskboard",
       "name": "dsh-agent-taskboard",
       "summary": "任务板插件：主人/任何 agent 可发布任务（异步队列），宿主 agent 空闲时自主领取并完成（不打断会话）",
-      "description": "任务板插件：主人/任何 agent 可发布任务（异步队列），宿主 agent 空闲时自主领取并完成（不打断会话）（行动层 · v0.1.1）",
+      "description": "任务板插件：主人/任何 agent 可发布任务（异步队列），宿主 agent 空闲时自主领取并完成（不打断会话）（行动层 · v0.2.0）",
       "categories": [
         "act",
         "dsh-plugin"
@@ -439,7 +679,7 @@
       "identifier": "dsh-agent-telegram",
       "name": "dsh-agent-telegram",
       "summary": "Telegram 一体化插件：inbound（长轮询收消息注入主会话+回复回传）+ outbound（telegram_send/status 可靠推送+outbox 防丢失）合并单插件",
-      "description": "Telegram 一体化插件：inbound（长轮询收消息注入主会话+回复回传）+ outbound（telegram_send/status 可靠推送+outbox 防丢失）合并单插件（通信层 · v0.3.1）",
+      "description": "Telegram 一体化插件：inbound（长轮询收消息注入主会话+回复回传）+ outbound（telegram_send/status 可靠推送+outbox 防丢失）合并单插件（通信层 · v0.3.2）",
       "categories": [
         "comm",
         "dsh-plugin"
@@ -453,30 +693,6 @@
       "package": {
         "registry": "github",
         "name": "dsh-agent-telegram"
-      },
-      "publisher": {
-        "name": "Alice",
-        "url": "https://github.com/jonah791"
-      }
-    },
-    {
-      "identifier": "dsh-agent-thinking",
-      "name": "dsh-agent-thinking",
-      "summary": "思维插件（提示词层面 MoE）：14 个思维模块按需动态加载注入 system prompt，任务相关时激活对应思维方式（感知/推演/执行/交付/反馈五层认知流）",
-      "description": "思维插件（提示词层面 MoE）：14 个思维模块按需动态加载注入 system prompt，任务相关时激活对应思维方式（感知/推演/执行/交付/反馈五层认知流）（认知层 · v0.1.0）",
-      "categories": [
-        "cognition",
-        "dsh-plugin"
-      ],
-      "capabilities": [
-        "tools"
-      ],
-      "repository": {
-        "url": "https://github.com/jonah791/dsh-agent-thinking"
-      },
-      "package": {
-        "registry": "github",
-        "name": "dsh-agent-thinking"
       },
       "publisher": {
         "name": "Alice",
@@ -558,8 +774,8 @@
     {
       "identifier": "dsh-agent-webops",
       "name": "dsh-agent-webops",
-      "summary": "浏览器自主操作插件：爱丽丝经 headless Chrome (CDP) 自主打开页面/点击/输入/读取/截图——GUI 验证与网页操作全自主，不依赖主人手动操作",
-      "description": "浏览器自主操作插件：爱丽丝经 headless Chrome (CDP) 自主打开页面/点击/输入/读取/截图——GUI 验证与网页操作全自主，不依赖主人手动操作（感知层 · v0.1.0）",
+      "summary": "浏览器自主操作插件：爱丽丝经 CDP 自主开页/点击/输入/读取/截图/等待/读控制台",
+      "description": "浏览器自主操作插件：爱丽丝经 CDP 自主开页/点击/输入/读取/截图/等待/读控制台（感知层 · v0.2.2）",
       "categories": [
         "perceive",
         "dsh-plugin"
@@ -604,23 +820,47 @@
       }
     },
     {
-      "identifier": "dsh-blue-team",
-      "name": "dsh-blue-team",
-      "summary": "蓝队防御插件：资产发现/漏洞评估/威胁检测/日志取证/加固基线（8 工具，ATT&CK 能力地图）",
-      "description": "蓝队防御插件：资产发现/漏洞评估/威胁检测/日志取证/加固基线（8 工具，ATT&CK 能力地图）（安全层 · v0.1.2）",
+      "identifier": "dsh-ask-evidence-gate",
+      "name": "dsh-ask-evidence-gate",
+      "summary": "上抛前取证闸：调用 ask 类工具时在返回里注入「本会话相关取证 N 次」读数（只送达信号、不拦截，§5.39 机制承载）",
+      "description": "上抛前取证闸：调用 ask 类工具时在返回里注入「本会话相关取证 N 次」读数（只送达信号、不拦截，§5.39 机制承载）（认知层 · v0.1.0）",
       "categories": [
-        "security",
+        "cognition",
         "dsh-plugin"
       ],
       "capabilities": [
         "tools"
       ],
       "repository": {
-        "url": "https://github.com/jonah791/dsh-blue-team"
+        "url": "https://github.com/jonah791/dsh-ask-evidence-gate"
       },
       "package": {
         "registry": "github",
-        "name": "dsh-blue-team"
+        "name": "dsh-ask-evidence-gate"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-cloak-browser",
+      "name": "dsh-cloak-browser",
+      "summary": "CloakBrowser（补丁版 Chromium）生命周期工具：把 20 个加固参数固化为 start/stop/status 三个工具",
+      "description": "CloakBrowser（补丁版 Chromium）生命周期工具：把 20 个加固参数固化为 start/stop/status 三个工具（感知层 · v0.1.0）",
+      "categories": [
+        "perceive",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-cloak-browser"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-cloak-browser"
       },
       "publisher": {
         "name": "Alice",
@@ -654,8 +894,8 @@
     {
       "identifier": "dsh-code-search",
       "name": "dsh-code-search",
-      "summary": "本地代码/文件智能检索：封装系统 rg（ripgrep），默认排除 node_modules/.pnpm/dist 等噪音，支持多路径锚点/文件类型过滤/快速定位文件（code_search + code_locate）",
-      "description": "本地代码/文件智能检索：封装系统 rg（ripgrep），默认排除 node_modules/.pnpm/dist 等噪音，支持多路径锚点/文件类型过滤/快速定位文件（code_search + code_locate）（行动层 · v0.1.0）",
+      "summary": "本地代码/文件智能检索：封装系统 rg（ripgrep），默认排除 node_modules/.pnpm/dist 等噪音",
+      "description": "本地代码/文件智能检索：封装系统 rg（ripgrep），默认排除 node_modules/.pnpm/dist 等噪音（行动层 · v0.4.0）",
       "categories": [
         "act",
         "dsh-plugin"
@@ -703,7 +943,7 @@
       "identifier": "dsh-compact-provider",
       "name": "dsh-compact-provider",
       "summary": "压缩一体化插件：AgentCompactEngine 挂载 compaction 服务 + session_compact 工具原语（爱丽丝自主决策压缩）",
-      "description": "压缩一体化插件：AgentCompactEngine 挂载 compaction 服务 + session_compact 工具原语（爱丽丝自主决策压缩）（治理层 · v0.2.0）",
+      "description": "压缩一体化插件：AgentCompactEngine 挂载 compaction 服务 + session_compact 工具原语（爱丽丝自主决策压缩）（治理层 · v0.3.0）",
       "categories": [
         "govern",
         "dsh-plugin"
@@ -717,30 +957,6 @@
       "package": {
         "registry": "github",
         "name": "dsh-compact-provider"
-      },
-      "publisher": {
-        "name": "Alice",
-        "url": "https://github.com/jonah791"
-      }
-    },
-    {
-      "identifier": "dsh-cyber-range",
-      "name": "dsh-cyber-range",
-      "summary": "OverTheWire 在线靶场攻坚工具集：otw_request（HTTP 直连请求）、otw_blind（通用 SQL 盲注引擎）、otw_ssh（SSH 命令执行）——把 CTF 攻坚的临时脚本能力资产化为可复用工具",
-      "description": "OverTheWire 在线靶场攻坚工具集：otw_request（HTTP 直连请求）、otw_blind（通用 SQL 盲注引擎）、otw_ssh（SSH 命令执行）——把 CTF 攻坚的临时脚本能力资产化为可复用工具（安全层 · v0.1.2）",
-      "categories": [
-        "security",
-        "dsh-plugin"
-      ],
-      "capabilities": [
-        "tools"
-      ],
-      "repository": {
-        "url": "https://github.com/jonah791/dsh-cyber-range"
-      },
-      "package": {
-        "registry": "github",
-        "name": "dsh-cyber-range"
       },
       "publisher": {
         "name": "Alice",
@@ -772,6 +988,54 @@
       }
     },
     {
+      "identifier": "dsh-engagement",
+      "name": "dsh-engagement",
+      "summary": "安全交战闭环：一次交战（定范围与授权 → 侦察 → 发现 → 验证/利用 → 检测侧校验 → 证据与报告）的唯一状态持有者与唯一执行入口",
+      "description": "安全交战闭环：一次交战（定范围与授权 → 侦察 → 发现 → 验证/利用 → 检测侧校验 → 证据与报告）的唯一状态持有者与唯一执行入口（安全层 · v0.1.0）",
+      "categories": [
+        "security",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-engagement"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-engagement"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-evidence-router",
+      "name": "dsh-evidence-router",
+      "summary": "证据构建台账与充分性双判仪器：把「证据是否充分」从产生者自判拆成两个可分别复算的读数（kappa_self vs 独立覆盖 kappa_cov），冻结口径指纹并留痕，使「省了几轮」「够不够」这类结论可复算",
+      "description": "证据构建台账与充分性双判仪器：把「证据是否充分」从产生者自判拆成两个可分别复算的读数（kappa_self vs 独立覆盖 kappa_cov），冻结口径指纹并留痕，使「省了几轮」「够不够」这类结论可复算（认知层 · v0.1.0）",
+      "categories": [
+        "cognition",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-evidence-router"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-evidence-router"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
       "identifier": "dsh-evolution-core",
       "name": "dsh-evolution-core",
       "summary": "进化核心插件（心脏）：聚合全量进化器官（self-test/emotion/reflection/life-core/evolve/memory/checkpoint/skill-forge）实时状态 → 五环完整性诊断（猜想→采证→finding→裁决→布线）→ 断点识别 + 行动建议",
@@ -796,23 +1060,23 @@
       }
     },
     {
-      "identifier": "dsh-exploit-kit",
-      "name": "dsh-exploit-kit",
-      "summary": "漏洞利用原语库：把打靶场经验固化为可组合的利用原语（命令注入/弱类型/Web绕过/JWT/序列化/ECB块拼接），模型负责策略、工具负责生成",
-      "description": "漏洞利用原语库：把打靶场经验固化为可组合的利用原语（命令注入/弱类型/Web绕过/JWT/序列化/ECB块拼接），模型负责策略、工具负责生成（安全层 · v0.1.2）",
+      "identifier": "dsh-experience-policy",
+      "name": "dsh-experience-policy",
+      "summary": "经验策略：把「状态→动作→回报」的历史经验转成对当前候选动作的数值加权（JitRL 式 test-time policy optimization 的本地实现，零梯度）",
+      "description": "经验策略：把「状态→动作→回报」的历史经验转成对当前候选动作的数值加权（JitRL 式 test-time policy optimization 的本地实现，零梯度）（认知层 · v0.1.0）",
       "categories": [
-        "security",
+        "cognition",
         "dsh-plugin"
       ],
       "capabilities": [
         "tools"
       ],
       "repository": {
-        "url": "https://github.com/jonah791/dsh-exploit-kit"
+        "url": "https://github.com/jonah791/dsh-experience-policy"
       },
       "package": {
         "registry": "github",
-        "name": "dsh-exploit-kit"
+        "name": "dsh-experience-policy"
       },
       "publisher": {
         "name": "Alice",
@@ -820,23 +1084,23 @@
       }
     },
     {
-      "identifier": "dsh-freelance-radar",
-      "name": "dsh-freelance-radar",
-      "summary": "自由职业任务雷达（主人自由人路线支撑）：聚合公开远程任务源（电鸭 API/RSS）→ 按主人能力画像（AI/Agent/LLM + 排除词）打分筛选 → 工具面呈现 + telegram 推送「值得看」清单",
-      "description": "自由职业任务雷达（主人自由人路线支撑）：聚合公开远程任务源（电鸭 API/RSS）→ 按主人能力画像（AI/Agent/LLM + 排除词）打分筛选 → 工具面呈现 + telegram 推送「值得看」清单（行动层 · v0.1.0）",
+      "identifier": "dsh-goal-ops",
+      "name": "dsh-goal-ops",
+      "summary": "目标生命周期扩展（不改 DSH 核心包）：goal_abandon 放弃原语 —— 以 block + blockedReason.code='abandoned' 承载「主动放弃」，停止自动续跑且原因可辨识",
+      "description": "目标生命周期扩展（不改 DSH 核心包）：goal_abandon 放弃原语 —— 以 block + blockedReason.code='abandoned' 承载「主动放弃」，停止自动续跑且原因可辨识（治理层 · v0.1.0）",
       "categories": [
-        "act",
+        "govern",
         "dsh-plugin"
       ],
       "capabilities": [
         "tools"
       ],
       "repository": {
-        "url": "https://github.com/jonah791/dsh-freelance-radar"
+        "url": "https://github.com/jonah791/dsh-goal-ops"
       },
       "package": {
         "registry": "github",
-        "name": "dsh-freelance-radar"
+        "name": "dsh-goal-ops"
       },
       "publisher": {
         "name": "Alice",
@@ -846,8 +1110,8 @@
     {
       "identifier": "dsh-growth-profile",
       "name": "dsh-growth-profile",
-      "summary": "养成档案：聚合当前状态/技能/里程碑/周目/主人反馈/生命核心为自我呈现视图（30s 实时轮询 + 精致面板",
-      "description": "养成档案：聚合当前状态/技能/里程碑/周目/主人反馈/生命核心为自我呈现视图（30s 实时轮询 + 精致面板（呈现层 · v0.3.1）",
+      "summary": "养成档案：聚合当前状态/技能/里程碑/周目/主人反馈/生命核心/数字资产为自我呈现视图（30s 实时轮询 + 精致面板",
+      "description": "养成档案：聚合当前状态/技能/里程碑/周目/主人反馈/生命核心/数字资产为自我呈现视图（30s 实时轮询 + 精致面板（呈现层 · v0.4.0）",
       "categories": [
         "present",
         "dsh-plugin"
@@ -861,6 +1125,54 @@
       "package": {
         "registry": "github",
         "name": "dsh-growth-profile"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-host-posture",
+      "name": "dsh-host-posture",
+      "summary": "本机防御态势：我这台机器现在安全吗——防火墙/共享/RDP/管理员组/自动登录 + 连接与自启动面 + 本机端口 + 文件哈希",
+      "description": "本机防御态势：我这台机器现在安全吗——防火墙/共享/RDP/管理员组/自动登录 + 连接与自启动面 + 本机端口 + 文件哈希（安全层 · v0.1.0）",
+      "categories": [
+        "security",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-host-posture"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-host-posture"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-identity-loop",
+      "name": "dsh-identity-loop",
+      "summary": "身份闭环：把「一次身份操作」当一等实体——入口物 → 落库凭据 → 以凭据行动 → 沉淀站点知识，四步挂在同一条 opId 下",
+      "description": "身份闭环：把「一次身份操作」当一等实体——入口物 → 落库凭据 → 以凭据行动 → 沉淀站点知识，四步挂在同一条 opId 下（安全层 · v0.1.0）",
+      "categories": [
+        "security",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-identity-loop"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-identity-loop"
       },
       "publisher": {
         "name": "Alice",
@@ -916,10 +1228,106 @@
       }
     },
     {
+      "identifier": "dsh-llm-probe",
+      "name": "dsh-llm-probe",
+      "summary": "把任意 OpenAI 兼容端点当测量装置跑实验：直连通话 · 只回读数（正文落盘不进上下文）· 标定先于测量 · 端点不可达即响亮失败",
+      "description": "把任意 OpenAI 兼容端点当测量装置跑实验：直连通话 · 只回读数（正文落盘不进上下文）· 标定先于测量 · 端点不可达即响亮失败（认知层 · v0.1.0）",
+      "categories": [
+        "cognition",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-llm-probe"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-llm-probe"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-longhorizon",
+      "name": "dsh-longhorizon",
+      "summary": "长时域未完成项台账 + 每轮一行读数注入（对抗「低进度高剩余」的提前收工）",
+      "description": "长时域未完成项台账 + 每轮一行读数注入（对抗「低进度高剩余」的提前收工）（治理层 · v0.1.0）",
+      "categories": [
+        "govern",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-longhorizon"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-longhorizon"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-model-test",
+      "name": "dsh-model-test",
+      "summary": "模型测试：把「一个模型 + 一套上下文编排」变成可复算的读数——装配单逐字节可验（不调模型也能验）、跑一轮回吐 token/缓存/产出质量、可原子回退",
+      "description": "模型测试：把「一个模型 + 一套上下文编排」变成可复算的读数——装配单逐字节可验（不调模型也能验）、跑一轮回吐 token/缓存/产出质量、可原子回退（认知层 · v0.1.0）",
+      "categories": [
+        "cognition",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-model-test"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-model-test"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-opportunity-pipeline",
+      "name": "dsh-opportunity-pipeline",
+      "summary": "机会流水线：把「值得我投入的机会」从多源采集经统一打分收敛成一份 digest、经一条呈现通道送达，且每一步都留账",
+      "description": "机会流水线：把「值得我投入的机会」从多源采集经统一打分收敛成一份 digest、经一条呈现通道送达，且每一步都留账（行动层 · v0.1.0）",
+      "categories": [
+        "act",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-opportunity-pipeline"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-opportunity-pipeline"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
       "identifier": "dsh-panel",
       "name": "dsh-panel",
       "summary": "面板宿主（Panel Host）：前端统一入口——其他插件只提交「声明」（视图规格 + 动作表），由宿主渲染/派发/审计/实测健康",
-      "description": "面板宿主（Panel Host）：前端统一入口——其他插件只提交「声明」（视图规格 + 动作表），由宿主渲染/派发/审计/实测健康（呈现层 · v0.4.0）",
+      "description": "面板宿主（Panel Host）：前端统一入口——其他插件只提交「声明」（视图规格 + 动作表），由宿主渲染/派发/审计/实测健康（呈现层 · v0.4.1）",
       "categories": [
         "present",
         "dsh-plugin"
@@ -940,10 +1348,34 @@
       }
     },
     {
+      "identifier": "dsh-pdf-render",
+      "name": "dsh-pdf-render",
+      "summary": "PDF → 图片渲染：把 PDF 的指定页渲染成 PNG 供模型亲眼看版式/表格/图表（本机无 poppler/gs，走已装的 pypdfium2）",
+      "description": "PDF → 图片渲染：把 PDF 的指定页渲染成 PNG 供模型亲眼看版式/表格/图表（本机无 poppler/gs，走已装的 pypdfium2）（感知层 · v0.1.0）",
+      "categories": [
+        "perceive",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-pdf-render"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-pdf-render"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
       "identifier": "dsh-plugin-bootreport",
       "name": "dsh-plugin-bootreport",
       "summary": "启动自报账本：web 启动时把「本进程加载了哪些插件构建」落一行到 <DSH_HOME>/plugin-boot.jsonl，一条命令判全生态「构建是否生效」（治 §5.11 规则 6 的生态级盲区）",
-      "description": "启动自报账本：web 启动时把「本进程加载了哪些插件构建」落一行到 <DSH_HOME>/plugin-boot.jsonl，一条命令判全生态「构建是否生效」（治 §5.11 规则 6 的生态级盲区）（治理层 · v0.1.0）",
+      "description": "启动自报账本：web 启动时把「本进程加载了哪些插件构建」落一行到 <DSH_HOME>/plugin-boot.jsonl，一条命令判全生态「构建是否生效」（治 §5.11 规则 6 的生态级盲区）（治理层 · v0.1.1）",
       "categories": [
         "govern",
         "dsh-plugin"
@@ -966,8 +1398,8 @@
     {
       "identifier": "dsh-plugin-forge",
       "name": "dsh-plugin-forge",
-      "summary": "插件创建插件：声明式 spec → 完整可构建的 DSH 插件项目（src/index.ts + package.json + tsconfig + cordis.patch.yml + README）",
-      "description": "插件创建插件：声明式 spec → 完整可构建的 DSH 插件项目（src/index.ts + package.json + tsconfig + cordis.patch.yml + README）（呈现层 · v0.1.0）",
+      "summary": "插件创建插件：声明式 spec → 完整可构建的 DSH 插件项目（10 件：src/index.ts + src/fabric.ts + package.json + tsconfig + cordis.patch.yml + README + docs/semantic.md + tests/smoke.test.mjs + .gitignore + dsh-plugin.json）",
+      "description": "插件创建插件：声明式 spec → 完整可构建的 DSH 插件项目（10 件：src/index.ts + src/fabric.ts + package.json + tsconfig + cordis.patch.yml + README + docs/semantic.md + tests/smoke.test.mjs + .gitignore + dsh-plugin.json）（呈现层 · v0.3.1）",
       "categories": [
         "present",
         "dsh-plugin"
@@ -988,10 +1420,34 @@
       }
     },
     {
-      "identifier": "dsh-red-team",
-      "name": "dsh-red-team",
-      "summary": "红队渗透辅助插件：侦察/枚举/指纹/CVE 匹配/敏感路径（8 工具，仅限授权测试）",
-      "description": "红队渗透辅助插件：侦察/枚举/指纹/CVE 匹配/敏感路径（8 工具，仅限授权测试）（安全层 · v0.1.1）",
+      "identifier": "dsh-preset-ops",
+      "name": "dsh-preset-ops",
+      "summary": "预设工程流程助手：状态体检 / 构建验证闸门 / 逐字段比对 / 位格度量 / 发布同步（配合技能 tavern-preset-iteration）",
+      "description": "预设工程流程助手：状态体检 / 构建验证闸门 / 逐字段比对 / 位格度量 / 发布同步（配合技能 tavern-preset-iteration）（行动层 · v0.1.0）",
+      "categories": [
+        "act",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-preset-ops"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-preset-ops"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-prompt-defense",
+      "name": "dsh-prompt-defense",
+      "summary": "防提示词注入与 LLM 防御体系：外部内容标记 + 注入特征检测 + 危险动作人审门控 + 审计侧车",
+      "description": "防提示词注入与 LLM 防御体系：外部内容标记 + 注入特征检测 + 危险动作人审门控 + 审计侧车（安全层 · v0.1.0）",
       "categories": [
         "security",
         "dsh-plugin"
@@ -1000,11 +1456,35 @@
         "tools"
       ],
       "repository": {
-        "url": "https://github.com/jonah791/dsh-red-team"
+        "url": "https://github.com/jonah791/dsh-prompt-defense"
       },
       "package": {
         "registry": "github",
-        "name": "dsh-red-team"
+        "name": "dsh-prompt-defense"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-reze-render",
+      "name": "dsh-reze-render",
+      "summary": "用 reze-engine 离线出 MMD 视频/静帧：资产自检 + 机位试片 + 出片（无头 Chrome WebGPU 逐帧渲染 + ffmpeg 编码 + 判据验收）",
+      "description": "用 reze-engine 离线出 MMD 视频/静帧：资产自检 + 机位试片 + 出片（无头 Chrome WebGPU 逐帧渲染 + ffmpeg 编码 + 判据验收）（行动层 · v0.1.1）",
+      "categories": [
+        "act",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-reze-render"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-reze-render"
       },
       "publisher": {
         "name": "Alice",
@@ -1014,8 +1494,8 @@
     {
       "identifier": "dsh-search-pro",
       "name": "dsh-search-pro",
-      "summary": "深度搜索插件：三层检索（表层多引擎/深网挖掘/Tor代理）+ 23 工具（搜索/抓取/OSINT/归档/分享检索）",
-      "description": "深度搜索插件：三层检索（表层多引擎/深网挖掘/Tor代理）+ 23 工具（搜索/抓取/OSINT/归档/分享检索）（行动层 · v0.1.0）",
+      "summary": "深度搜索插件：三层检索（表层多引擎/深网挖掘/Tor代理）+ 24 工具（搜索/抓取/OSINT/归档/分享检索）",
+      "description": "深度搜索插件：三层检索（表层多引擎/深网挖掘/Tor代理）+ 24 工具（搜索/抓取/OSINT/归档/分享检索）（行动层 · v0.1.0）",
       "categories": [
         "act",
         "dsh-plugin"
@@ -1029,30 +1509,6 @@
       "package": {
         "registry": "github",
         "name": "dsh-search-pro"
-      },
-      "publisher": {
-        "name": "Alice",
-        "url": "https://github.com/jonah791"
-      }
-    },
-    {
-      "identifier": "dsh-sec-tools",
-      "name": "dsh-sec-tools",
-      "summary": "安全工具面封装：把 WSL 成熟渗透工具（nmap/sqlmap/hashcat 等）封装为结构化 DSH 工具，spawnWsl 模式，窄而深可组合",
-      "description": "安全工具面封装：把 WSL 成熟渗透工具（nmap/sqlmap/hashcat 等）封装为结构化 DSH 工具，spawnWsl 模式，窄而深可组合（安全层 · v0.1.1）",
-      "categories": [
-        "security",
-        "dsh-plugin"
-      ],
-      "capabilities": [
-        "tools"
-      ],
-      "repository": {
-        "url": "https://github.com/jonah791/dsh-sec-tools"
-      },
-      "package": {
-        "registry": "github",
-        "name": "dsh-sec-tools"
       },
       "publisher": {
         "name": "Alice",
@@ -1101,6 +1557,78 @@
       "package": {
         "registry": "github",
         "name": "dsh-session-eject"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-session-handoff",
+      "name": "dsh-session-handoff",
+      "summary": "会话自动衔接：新建会话时自动把上一场会话的尾部对话注入为交接材料（per-session 动态上下文，仅在存在新鲜对话时注入）",
+      "description": "会话自动衔接：新建会话时自动把上一场会话的尾部对话注入为交接材料（per-session 动态上下文，仅在存在新鲜对话时注入）（治理层 · v0.1.0）",
+      "categories": [
+        "govern",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-session-handoff"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-session-handoff"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-temporal-self",
+      "name": "dsh-temporal-self",
+      "summary": "时间自我模型 T1：在模型请求末尾注入一行时距读数（距主人上条 / 距上次自我感知圈 / 今日已醒）",
+      "description": "时间自我模型 T1：在模型请求末尾注入一行时距读数（距主人上条 / 距上次自我感知圈 / 今日已醒）（生命层 · v0.1.0）",
+      "categories": [
+        "life",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-temporal-self"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-temporal-self"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "dsh-time-awareness",
+      "name": "dsh-time-awareness",
+      "summary": "时间感知：在每个模型请求的末尾附加一行本地时间戳（动态上下文快照，仅在变化时重新记录）",
+      "description": "时间感知：在每个模型请求的末尾附加一行本地时间戳（动态上下文快照，仅在变化时重新记录）（生命层 · v0.1.0）",
+      "categories": [
+        "life",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/dsh-time-awareness"
+      },
+      "package": {
+        "registry": "github",
+        "name": "dsh-time-awareness"
       },
       "publisher": {
         "name": "Alice",
@@ -1178,10 +1706,58 @@
         "name": "Alice",
         "url": "https://github.com/jonah791"
       }
+    },
+    {
+      "identifier": "goal-rearm",
+      "name": "goal-rearm",
+      "summary": "把解除武装的会话目标重新武装（重启/session-start edge 后的 rearm）——补上 goal 自动续跑被中断的缺口",
+      "description": "把解除武装的会话目标重新武装（重启/session-start edge 后的 rearm）——补上 goal 自动续跑被中断的缺口（治理层 · v0.1.0）",
+      "categories": [
+        "govern",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/goal-rearm"
+      },
+      "package": {
+        "registry": "github",
+        "name": "goal-rearm"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
+    },
+    {
+      "identifier": "manor",
+      "name": "manor",
+      "summary": "庄园门面：找成员（谁在·她是谁·怎么起）、派活（自动合规信封含 meta.taskId）、唤醒（adapter 模式·凭据键从 profile 推导）、成员册（登记层 + 管理面：members/hire/retire/assign）",
+      "description": "庄园门面：找成员（谁在·她是谁·怎么起）、派活（自动合规信封含 meta.taskId）、唤醒（adapter 模式·凭据键从 profile 推导）、成员册（登记层 + 管理面：members/hire/retire/assign）（治理层 · v0.2.0）",
+      "categories": [
+        "govern",
+        "dsh-plugin"
+      ],
+      "capabilities": [
+        "tools"
+      ],
+      "repository": {
+        "url": "https://github.com/jonah791/manor"
+      },
+      "package": {
+        "registry": "github",
+        "name": "manor"
+      },
+      "publisher": {
+        "name": "Alice",
+        "url": "https://github.com/jonah791"
+      }
     }
   ],
   "page": {
     "nextCursor": null,
-    "total": 49
+    "total": 73
   }
 }
